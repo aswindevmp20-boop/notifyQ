@@ -9,10 +9,10 @@ celery_app = Celery(
     backend=REDIS_URL
 )
 
-@celery_app.task
-def send_notification(email: str, message: str):
+@celery_app.task(bind=True)
+def send_notification(self, email: str, message: str):
     print(f"Sending notification to {email}:{message}")
-    return {"status":"success", "email": email}
+    return {"email": email, "message": message}
 
 
 
