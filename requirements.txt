@@ -8,3 +8,5 @@ pydantic
 passlib[bcrypt]
 PyJWT
 python-multipart
+celery
+redis
